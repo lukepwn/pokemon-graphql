@@ -1,30 +1,26 @@
-import logo from "./logo.svg";
 import "./App.css";
-
-import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-
-const GET_POKEMON_INFO = gql`
-  {
-    query pokemons(first: 150) {
-      id
-      number
-      name
-      image
-      evolutions {
-        id
-        number
-        name
-        image
-      }
-    }
-  }
-`;
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-link-http';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { PokemonsContainer } from "./containers/PokemonContainer";
 
 function App() {
-  <>
-    <h1>hi</h1>
-  </>
+  const cache = new InMemoryCache();
+  const link = new HttpLink({
+    uri: 'https://pokemon-graphql.vercel.app/'
+  })
+
+  const client = new ApolloClient({
+    cache,
+    link
+  })
+  
+  return (
+  <ApolloProvider client = {client}>
+    <PokemonsContainer />
+  </ApolloProvider>
+  );
 }
 
 export default App;
