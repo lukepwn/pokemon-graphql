@@ -6,7 +6,7 @@ import gql from "graphql-tag";
 
 const GET_POKEMON_INFO = gql`
   {
-    pokemons(first: 150) {
+    query pokemons(first: 150) {
       id
       number
       name
@@ -26,7 +26,7 @@ function App() {
 
   if (loading) return <p>Loading...</p>;
 
-  if (error) return <p>Error...</p>;
+  if (error) return <p>Error....</p>;
 
   return (
     <>
