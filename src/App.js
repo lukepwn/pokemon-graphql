@@ -3,7 +3,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { PokemonsContainer } from "./containers/PokemonContainer";
+import { PokemonsContainer } from "./containers/PokemonsContainer";
 
 function App() {
   const cache = new InMemoryCache();
