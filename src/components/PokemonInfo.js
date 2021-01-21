@@ -3,9 +3,10 @@ import React from 'react';
 export function Pokemon({ pokemon }) {
   return (
     <div className="pokemon">
-      <div className="pokemon__name">
+      <div className="pokemon__name"></div>
+       
         <p>{pokemon.name}</p>
-      </div>
+
       <div className="pokemon__meta">
         <span>{pokemon.maxHP}</span>
         <span>{pokemon.maxCP}</span>
