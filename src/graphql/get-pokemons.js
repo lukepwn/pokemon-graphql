@@ -2,18 +2,17 @@
 import gql from 'graphql-tag';
 
 export const GET_POKEMONS = gql`
-  query pokemons($first: Int!) {
-    pokemons(first: $first) {
+{
+    pokemons(first: 151) {
       id
-      name
-      image
-      maxHP
-      maxCP
-      attacks {
-        special {
-          name
-          damage
-        }
+      number
+      name,
+      image,
+      evolutions {
+        id,
+        number,
+        name,
+        image
       }
     }
   }
